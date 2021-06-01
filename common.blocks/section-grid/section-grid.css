@@ -1,0 +1,112 @@
+.section-grid {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  font-family: "Open Sans", sans-serif;
+  background-color: #fff;
+}
+
+.section-grid__about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-self: end;
+  box-sizing: border-box;
+  width: 340px;
+  margin: 100px;
+}
+
+.section-grid__title {
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 1.2em;
+  letter-spacing: 0.1em;
+}
+
+.section-grid__title_about {
+  color: rgb(185, 152, 103);
+}
+
+.section-grid__text {
+  box-sizing: border-box;
+}
+
+.section-grid__about_slogan {
+  justify-self: start;
+}
+
+.section-grid_image {
+  background-image: url("/common.blocks/section-grid/img-1.webp");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-size: cover;
+}
+
+.section-grid_image2 {
+  background-image: url("/common.blocks/section-grid/img-2.webp");
+}
+
+.section-grid__link {
+  text-decoration: none;
+}
+
+.section-grid__link__text {
+  display: block;
+  margin-top: 30px;
+  padding: 15px 20px;
+  color: rgb(185, 152, 103);
+  text-transform: uppercase;
+  border: 2px rgb(41, 64, 87) solid;
+}
+
+.section-grid__link__text:hover {
+  color: #fff;
+  background-color: rgb(41, 64, 87);
+  transition: 0.4s ease 0s;
+}
+
+.section-grid__link__text_slogan {
+  color: rgb(41, 64, 87);
+  border: 2px rgb(185, 152, 103) solid;
+}
+
+.section-grid__link__text_slogan:hover {
+  background-color: rgb(185, 152, 103);
+}
+
+@media (max-width: 1000px) {
+  .section-grid {
+    grid-template: repeat(4, 1fr) / 1fr;
+    grid-template-areas: 'img' 'about' 'img2' 'slogan';
+  }
+
+  .section-grid__about {
+    width: 100%;
+    grid-area: about;
+    margin: 0;
+  }
+
+  .section-grid_image {
+    width: 100%;
+    grid-area: img;
+  }
+
+  .section-grid_image2 {
+    grid-area: img2;
+  }
+
+  .section-grid__about_slogan {
+    grid-area: slogan;
+    justify-self: center;
+  }
+
+  .section-grid__about {
+    align-items: center;
+    justify-self: center;
+    padding: 5vh;
+  }
+
+  .section-grid__title {
+    margin-top: 0;
+    text-align: center;
+  }
+}

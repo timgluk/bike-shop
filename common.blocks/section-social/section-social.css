@@ -1,0 +1,15 @@
+.section-social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  background-color: rgb(185, 152, 103);
+}
+
+.section-social__imag {
+  display: block;
+  box-sizing: border-box;
+  height: 45px;
+  margin-right: 20px;
+}

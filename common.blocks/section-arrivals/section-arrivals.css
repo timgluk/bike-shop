@@ -1,0 +1,52 @@
+.section-arrivals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 70px;
+  color: rgb(41, 64, 87);
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  background-color: #fff;
+}
+
+.section-arrivals__title {
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 1.2em;
+  letter-spacing: 0.1em;
+}
+
+.section-arrivals__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.section-arrivals__img {
+  width: 300px;
+  height: 230px;
+}
+
+.arrivals__button__link {
+  text-decoration: none;
+}
+
+.arrivals__button {
+  display: block;
+  padding: 15px 20px;
+  color: rgb(185, 152, 103);
+  border: 2px rgb(41, 64, 87) solid;
+}
+
+.arrivals__button:hover {
+  color: #fff;
+  background-color: rgb(41, 64, 87);
+  transition: 0.4s ease 0s;
+}
+
+@media (max-width: 768px) {
+  .section-arrivals__title {
+    text-align: center;
+  }
+}

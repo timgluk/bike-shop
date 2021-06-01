@@ -1,0 +1,32 @@
+.section-slogan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 220px;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-style: italic;
+  background-color: rgb(41, 64, 87);
+}
+
+.section-slogan__title {
+  margin: 0;
+  color: rgb(185, 152, 103);
+  font-weight: normal;
+  font-size: 70px;
+  line-height: 0.15em;
+}
+
+.section-slogan__text-block {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.section-slogan__text {
+  font-size: 24px;
+}

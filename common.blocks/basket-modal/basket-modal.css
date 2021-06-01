@@ -1,0 +1,229 @@
+.basket-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 6;
+  display: none;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(78, 82, 87, 0.611);
+  border: 0;
+  pointer-events: auto;
+}
+
+.basket-modal__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  background-color: #fff;
+  opacity: 1;
+  animation-name: animatetop;
+  animation-duration: 1s;
+}
+
+@keyframes animatetop {
+  from {
+    right: -800px;
+    opacity: 0;
+  }
+
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+.basket-modal__content__header-box {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  color: #fff;
+  background-color: rgb(41, 64, 87);
+  opacity: 1;
+}
+
+.basket-modal__content__button-close {
+  position: absolute;
+  align-self: flex-start;
+  margin-left: 20px;
+  color: #fff;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.basket-modal__content__title {
+  font-weight: normal;
+  font-size: 23px;
+  font-family: "open sans", sans-serif;
+}
+
+.basket-modal__content__item-box {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.basket-modal__content__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 35px 0 25px;
+  border-bottom: 1px solid black;
+}
+
+.basket-modal__content__img {
+  width: 100px;
+  height: 80px;
+}
+
+.basket-modal__content__details-box {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.basket-modal__content__title-in-box {
+  margin: 0;
+  color: #294057;
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+.basket-modal__content__price {
+  margin: 10px 0;
+  color: #294057;
+  font-weight: lighter;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.basket-modal__content__counter-box {
+  position: relative;
+  display: inline-block;
+  width: 64px;
+}
+
+.basket-modal__content__counter {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  color: #2f2e2e;
+  font-weight: normal;
+  font-size: 12px;
+  font-size: 15px;
+  text-align: center;
+  border: 1px solid #2f2e2e;
+}
+
+.basket-modal__content__counter::-webkit-inner-spin-button {
+  display: none;
+}
+
+.basket-modal__content__button-minus {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: 1px;
+  display: block;
+  width: 20px;
+  padding: 0;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  border: 0;
+  border-right: 1px solid #ddd;
+}
+
+.basket-modal__content__button-plus {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  display: block;
+  width: 20px;
+  padding: 0;
+  font-weight: 600;
+  text-align: center;
+  border: 0;
+  border-left: 1px solid #ddd;
+}
+
+.basket-modal__content__button-del {
+  align-self: flex-start;
+  margin-top: 10px;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  visibility: visible;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.4s linear;
+}
+
+.material-icons.md-18 {
+  width: 18px;
+  height: 18px;
+  color: #294057;
+  font-size: 18px;
+  border: 1px solid #294057;
+  border-radius: 50%;
+}
+
+.basket-modal__content__sum-title {
+  margin-bottom: 10px;
+  margin-left: 30px;
+  color: #294057;
+  font-weight: normal;
+  font-size: 26px;
+}
+
+.basket-modal__content__sum {
+  padding-bottom: 40px;
+  padding-left: 30px;
+  color: #294057;
+  font-weight: normal;
+  font-size: 26px;
+  border-bottom: 1px solid black;
+}
+
+.basket-modal__content__to-basket {
+  display: block;
+  align-self: center;
+  width: 280px;
+  height: 40px;
+  margin-top: 40px;
+  color: #fff;
+  line-height: 2.5em;
+  text-align: center;
+  text-decoration: none;
+  background: rgba(185, 152, 103, 1);
+}
+
+.basket-modal__content__to-basket:hover {
+  opacity: 0.7;
+  transition: opacity 0.5s;
+}
