@@ -76,18 +76,21 @@
 @media (max-width: 1000px) {
   .section-grid {
     grid-template: repeat(4, 1fr) / 1fr;
-    grid-template-areas: 'img' 'about' 'img2' 'slogan';
+    grid-template-areas: "img" "about" "img2" "slogan";
   }
 
   .section-grid__about {
-    width: 100%;
     grid-area: about;
+    align-items: center;
+    justify-self: center;
+    width: 100%;
     margin: 0;
+    padding: 5vh;
   }
 
   .section-grid_image {
-    width: 100%;
     grid-area: img;
+    width: 100%;
   }
 
   .section-grid_image2 {
@@ -97,12 +100,6 @@
   .section-grid__about_slogan {
     grid-area: slogan;
     justify-self: center;
-  }
-
-  .section-grid__about {
-    align-items: center;
-    justify-self: center;
-    padding: 5vh;
   }
 
   .section-grid__title {

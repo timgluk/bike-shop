@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 0);
 });
 
+//Модальное окно корзины
 document.addEventListener('DOMContentLoaded', () => {
   const urlPage = window.location.pathname.split('/')[1];
   if (urlPage === 'index.html') {
@@ -34,12 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const basketModalCloseButton = document.querySelector('.basket-modal__content__button-close');
 
-  const basketModalLink = document.querySelector('.header__basket__link');
+  const basketModalLink = document.querySelector('.header__svg__link');
   basketModalLink.addEventListener('click', function(event) {
-    event.preventDefault();
-    const visually = document.querySelector('.basket-modal');
-    visually.style.display = 'flex';
-    basketModalCloseButton.style.animation = "rotate 1s";
+    if ( window.innerWidth > 768 ) {
+      event.preventDefault();
+      const visually = document.querySelector('.basket-modal');
+      visually.style.display = 'flex';
+      basketModalCloseButton.style.animation = "rotate 1s"; 
+    } else {
+      basketModalLink.href = '/basket.html';
+    }
   });
 
   basketModalCloseButton.addEventListener('click', function() {
@@ -50,7 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const sumNumberValue = document.querySelector('.basket-modal__content__sum');
 
-  let totalSum = 0;
+  // Функция общей суммы
+  function getSumTotal() {
+    const total = arrBasket.map(item => item.price * item.number).reduce(function (sum, current) {
+    return sum + current;
+    }, 0);
+    return total;
+  };
+  console.log(getSumTotal);
 
   for (let i = 0; i < arrBasket.length; i++) {
     const productBox = document.createElement('div');
@@ -92,18 +104,21 @@ document.addEventListener('DOMContentLoaded', () => {
       value: arrBasket[i].number,
     });
 
-    totalSum += arrBasket[i].price * counter.value;
+    counter.addEventListener('keydown', function(e) {
+      if (e.code === 'Enter') {
+        arrBasket[i].number = counter.value;
+        sumNumberValue.innerHTML = `RUB ${getSumTotal()}.00`;
+        console.log(getSumTotal);
+      }
+    });
 
     buttonMinus.onclick = function() {
       this.nextElementSibling.stepDown();
       arrBasket[i].number = +counter.value;
       localStorage.setItem('arrBasket', JSON.stringify(arrBasket));
-      if (counter.value > 1) {
-      totalSum -= arrBasket[i].price;
-      }; 
-      sumNumberValue.innerHTML = `RUB ${totalSum}.00`;
+      sumNumberValue.innerHTML = `RUB ${getSumTotal()}.00`;
       console.log(arrBasket);
-      console.log(totalSum);
+      console.log(getSumTotal);
     };
 
     buttonMinus.after(counter);
@@ -116,10 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
       this.previousElementSibling.stepUp();
       arrBasket[i].number = +counter.value;
       localStorage.setItem('arrBasket', JSON.stringify(arrBasket));
-      totalSum += arrBasket[i].price;
-      sumNumberValue.innerHTML = `RUB ${totalSum}.00`;
+      sumNumberValue.innerHTML = `RUB ${getSumTotal()}.00`;
       console.log(arrBasket);
-      console.log(totalSum);
+      console.log(getSumTotal);
     };
 
     counter.after(buttonPlus);
@@ -141,28 +155,18 @@ document.addEventListener('DOMContentLoaded', () => {
     buttonDell.addEventListener('click', () => {
       arrBasket.splice(productBox.remove(), 1);
       localStorage.setItem('arrBasket', JSON.stringify(arrBasket));
-      sumNumberValue.innerHTML = `RUB ${totalSum}.00`;
+      sumNumberValue.innerHTML = `RUB ${getSumTotal()}.00`;
     });
   }
-  console.log(totalSum);
 
-  sumNumberValue.innerHTML = `RUB ${totalSum}.00`;
-
-  const div = document.querySelector('.basket-modal__content__item-box');
-  const clickInput = div.querySelectorAll('input');
-  clickInput.forEach((elem) => elem.addEventListener('click', () => {
-    sumNumberValue.innerHTML = `RUB ${totalSum}.00`;
-    console.log(totalSum);
-  }));
+  sumNumberValue.innerHTML = `RUB ${getSumTotal()}.00`;
 });
-
 
 // Логика меню адаптива
 
 document.addEventListener('DOMContentLoaded', () => {
   const navButton = document.querySelector('.header__menu-burger');
   navButton.innerHTML = `<span class="material-icons md-36">menu</span>`;
-  console.log(navButton.innerText);
 
   const navList = document.querySelector('.header__menu-list');
   navButton.addEventListener('click', function (e) {
